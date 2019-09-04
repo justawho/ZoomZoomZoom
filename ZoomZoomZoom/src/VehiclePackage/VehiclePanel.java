@@ -6,11 +6,14 @@
 package VehiclePackage;
 
 import javax.swing.*;
+import java.util.logging.*;
 import java.awt.*;
 import java.awt.event.*;
 
 public class VehiclePanel
 {
+
+	private final static Logger LOGGER = Logger.getLogger(VehiclePanel.class.getName());
 
     String[] vehicles =
     {
@@ -62,6 +65,7 @@ public class VehiclePanel
             Vehicle vehicle = VehicleFactory.createVehicle(capture);
 
             label.setText(vehicle.honk());
+            LOGGER.info(capture  +" Honk Button Activated");
         });
 
         move.addActionListener((ActionEvent event) ->
@@ -70,6 +74,7 @@ public class VehiclePanel
             Vehicle vehicle = VehicleFactory.createVehicle(capture);
 
             label.setText(vehicle.move());
+            LOGGER.info(capture +" Move Button Activated");
         });
         
         stringTheory.addActionListener((ActionEvent event) ->
@@ -78,6 +83,7 @@ public class VehiclePanel
             Vehicle vehicle = VehicleFactory.createVehicle(capture);
 
             label.setText(vehicle.toString());
+            LOGGER.info(capture +" String Theory button activated");
         });
     }
 
